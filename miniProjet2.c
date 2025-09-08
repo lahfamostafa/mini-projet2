@@ -10,10 +10,12 @@ int main()
     int i;
     int compteur,compteur1=4;
 
+
     for ( i=0 ; i < strlen(motCache) ; i++)
         printf("%c",motCache[i]);
     do{
 
+    int dejatrouve =0;
     compteur=0;
     printf ("\nEntrer une lettre : ");
     scanf(" %c",&chiffre);
@@ -21,26 +23,34 @@ int main()
 
     for(i=0 ; i < strlen(motCache) ; i++){
         if(chiffre==mot[i]){
-            motCache[i]=chiffre;
-            compteur++;
+            if(motCache[i]==chiffre){
+            dejatrouve=1;
+            }else{
+                motCache[i]=chiffre;
+                compteur++;
+            }
+
         }
     }
 
-    if(compteur>0){
+    if(dejatrouve){
+        printf("\nCette lettre a deja ete proposee !");
+        compteur1--;
+    }
+
+    else if (compteur>0){
         printf("\nBravo ! Lettre trouvee.      ");
-        for ( i=0 ; i < strlen(motCache) ; i++)
-            printf("%c",motCache[i]);
-        printf("\nle reste de repitition : %d\n",compteur1);
 
     }else{
         printf("\nOups ! Lettre non presente.  ");
-        for ( i=0 ; i < strlen(motCache) ; i++)
-            printf("%c",motCache[i]);
-            compteur1--;
-        printf("\nle reste de repitition : %d \n",compteur1);
+        compteur1--;
 
     }
 
+    for(i=0; i < strlen(motCache); i++)
+        printf("%c",motCache[i]);
+
+    printf("\nle reste de repitition : %d \n",compteur1);
 
 
     if(compteur1==0){
