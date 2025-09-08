@@ -8,7 +8,7 @@ int main()
     char motCache[7]={"_______"};
     char chiffre;
     int i;
-    int compteur,compteur1=10;
+    int compteur,compteur1=4;
 
     for ( i=0 ; i < strlen(motCache) ; i++)
         printf("%c",motCache[i]);
@@ -27,14 +27,18 @@ int main()
     }
 
     if(compteur>0){
-        printf("\nBravo ! Lettre trouvee.\n\n");
+        printf("\nBravo ! Lettre trouvee.      ");
+        for ( i=0 ; i < strlen(motCache) ; i++)
+            printf("%c",motCache[i]);
+        printf("\nle reste de repitition : %d\n",compteur1);
+
+    }else{
+        printf("\nOups ! Lettre non presente.  ");
         for ( i=0 ; i < strlen(motCache) ; i++)
             printf("%c",motCache[i]);
             compteur1--;
+        printf("\nle reste de repitition : %d \n",compteur1);
 
-    }else{
-        printf("\nOups ! Lettre non presente.\n");
-        compteur1--;
     }
 
 
